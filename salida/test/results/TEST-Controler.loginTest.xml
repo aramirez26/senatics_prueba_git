@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="ANTONIORAMIREZ" name="Controler.loginTest" skipped="0" tests="1" time="0.11" timestamp="2017-05-27T00:04:12">
+<testsuite errors="0" failures="1" hostname="ANTONIORAMIREZ" name="Controler.loginTest" skipped="0" tests="1" time="0.126" timestamp="2017-05-27T00:09:40">
   <properties>
     <property name="libs.jdt-compiler-3.1.1.maven-pom" value="" />
     <property name="libs.jsp-compiler.javadoc" value="" />
@@ -70,7 +70,7 @@
     <property name="javax.xml.datatype.DatatypeFactory" value="com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Controler.loginTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\antonio\proyectos\senatics\proyectos_java2\WebPruebaSenatics2\salida\test\results\TEST-Controler.loginTest.xml crashfile=C:\antonio\proyectos\senatics\proyectos_java2\WebPruebaSenatics2\build\junitvmwatcher8529679972463668235.properties propsfile=C:\antonio\proyectos\senatics\proyectos_java2\WebPruebaSenatics2\build\junit7313625455610135933.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Controler.loginTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\antonio\proyectos\senatics\proyectos_java2\WebPruebaSenatics2\salida\test\results\TEST-Controler.loginTest.xml crashfile=C:\antonio\proyectos\senatics\proyectos_java2\WebPruebaSenatics2\build\junitvmwatcher8961684490665161802.properties propsfile=C:\antonio\proyectos\senatics\proyectos_java2\WebPruebaSenatics2\build\junit6626022648647419610.properties" />
     <property name="build.classes.dir" value="build/web/WEB-INF/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="ap.supported.internal" value="true" />
@@ -446,7 +446,11 @@
     <property name="war.ear.name" value="WebPruebaSenatics.war" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="Controler.loginTest" name="testGetSesion" time="0.016" />
+  <testcase classname="Controler.loginTest" name="testGetSesion" time="0.047">
+    <failure message="expected:&lt;[a]&gt; but was:&lt;[b]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[a]&gt; but was:&lt;[b]&gt;
+	at Controler.loginTest.testGetSesion(loginTest.java:47)
+</failure>
+  </testcase>
   <system-out><![CDATA[getSesion
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
