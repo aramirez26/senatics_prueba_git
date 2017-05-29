@@ -28,17 +28,16 @@
     </fail>
     <target depends="dist,javadoc" description="Build whole project." name="default"/>
     <!--
-                INITIALIZATION SECTION				
-            -->
-			
-<!-- <property file="nbproject\project.properties"/>			
+                INITIALIZATION SECTION
+                -->            
+<property file="nbproject\project.properties"/>		
+<property name="cobertura.dir" value="C:/javastuff/cobertura" />	
 			
 <path id="cobertura.classpath">
-	<pathelement location="lib\\cobertura-2.0.3.jar" />
-	<pathelement location="lib\\log4j-1.2.16.jar" />
-	<pathelement location="lib\\asm-3.1.jar" />
     <fileset dir="${cobertura.dir}">
-
+		<include name="lib\\log4j-1.2.16.jar"/>
+        <include name="lib\\cobertura-2.0.3.jar"/>
+		<include name="lib\\asm-3.1.jar"/>
     </fileset>
 </path>
 
@@ -84,9 +83,8 @@
         format="html"
         destdir="${cobertura.report.dir}"
         srcdir="${src.dir}" />
-</target> -->
+</target>               
 
-			
     <target name="-pre-init">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
@@ -284,7 +282,7 @@
                 <istrue value="${j2ee.deploy.on.save}"/>
                 <istrue value="${j2ee.compile.on.save}"/>
             </or>
-        </condition>	
+        </condition>
     </target>
     <target name="-post-init">
         <!-- Empty placeholder for easier customization. -->
@@ -1052,7 +1050,7 @@ exists or setup the property manually. For example like this:
             <fileset dir="${build.web.dir}" excludes="WEB-INF/classes/.netbeans_*,${dist.archive.excludes}"/>
         </jar>
     </target>
-	<target depends="init,compile,compile-jsps,-pre-dist,-do-dist-with-manifest,-do-dist-without-manifest" name="do-dist"/>
+    <target depends="init,compile,compile-jsps,-pre-dist,-do-dist-with-manifest,-do-dist-without-manifest" name="do-dist"/>
     <target depends="init" if="dist.ear.dir" name="library-inclusion-in-manifest">
         <copyfiles files="${libs.PostgreSQLDriver.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.JasperReports.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -1075,8 +1073,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.log4j-1.2.16.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.itex.classpath}" todir="${build.web.dir}//"/>
     </target>
-
-	
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
     </target>
@@ -1439,10 +1435,8 @@ exists or setup the property manually. For example like this:
     <target depends="init,compile-test,-pre-test-run,-do-test-run" if="have.tests" name="-post-test-run">
         <fail if="tests.failed" unless="ignore.failing.tests">Some tests failed; see details above.</fail>
     </target>
-    <target depends="init" if="have.tests" name="test-report">
-	</target>
-    <target depends="init, set-cobertura-file, cobertura-report" if="netbeans.home+have.tests" name="-test-browse">
-	</target>
+    <target depends="init" if="have.tests" name="test-report"/>
+    <target depends="init" if="netbeans.home+have.tests" name="-test-browse"/>
     <target depends="init,compile-test,-pre-test-run,-do-test-run,test-report,-post-test-run,-test-browse" description="Run unit tests." name="test"/>
     <target depends="init" if="have.tests" name="-pre-test-run-single">
         <mkdir dir="${build.test.results.dir}"/>
@@ -1464,61 +1458,8 @@ exists or setup the property manually. For example like this:
         <fail if="tests.failed" unless="ignore.failing.tests">Some tests failed; see details above.</fail>
     </target>
     <target depends="init,compile-test-single,-pre-test-run-single,-do-test-run-single-method,-post-test-run-single-method" description="Run single unit test." name="test-single-method"/>
-  
-	<target name="cobertura-instrument" depends="compile">
-	
-		<property file="nbproject\project.properties"/>	
-		<property name="cobertura.ser.file" value="${cobertura.dir}/cobertura.ser"/>
-		<property name="cobertura.classes.dir" value="${cobertura.dir}/classes"/>
-
-		<path id="cobertura.classpath">
-			<pathelement location="lib\\cobertura-2.0.3.jar" />
-			<pathelement location="lib\\log4j-1.2.16.jar" />
-			<pathelement location="lib\\asm-3.1.jar" />
-			<fileset dir="${cobertura.dir}">
-
-			</fileset>
-		</path>
-		
-		<taskdef classpathref="cobertura.classpath" resource="tasks.properties">
-		  <classpath>
-			<pathelement location="lib\\cobertura-2.0.3.jar"/>
-		  </classpath>
-		</taskdef>
-
-		<cobertura-instrument
-			todir="${cobertura.classes.dir}"
-			datafile="${cobertura.ser.file}" >
-		<fileset dir="${build.classes.dir}">
-			 <include name="**/*.class"/>
-		</fileset>
-		</cobertura-instrument>
-	</target>
-
-	<target name="cobertura-test">
-	
-	</target>
-
-	<target name="set-cobertura-file">
-		<property
-			name="test-sys-prop.net.sourceforge.cobertura.datafile"
-			value="${cobertura.ser.file}"/>
-	</target>
-
-	<target name="cobertura-report" depends="set-cobertura-file">
-		<cobertura-report
-			datafile="${cobertura.ser.file}"
-			format="xml"
-			destdir="${cobertura.report.dir}"
-			srcdir="${src.dir}" />
-
-		<cobertura-report
-			datafile="${cobertura.ser.file}"
-			format="html"
-			destdir="${cobertura.report.dir}"
-			srcdir="${src.dir}" />
-	</target>	
-	<!--    
+    <!--
+                
                 TEST DEBUGGING SECTION
             -->
     <target depends="init,compile-test-single,-pre-test-run-single" if="have.tests" name="-debug-start-debuggee-test">

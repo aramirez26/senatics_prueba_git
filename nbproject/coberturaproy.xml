@@ -1,0 +1,18 @@
+<project name="coberturaproy" basedir=".." default="package">
+
+<property file="C:\\antonio\\proyectos\\senatics\\proyectos_java2\\WebPruebaSenatics2\\nbproject\\project.properties"/>
+
+<path id="cobertura.classpath">
+    <fileset dir="${cobertura.dir}">
+        <include name="cobertura.jar" />
+        <include name="lib/**/*.jar" />
+    </fileset>
+</path>
+
+<taskdef classpathref="cobertura.classpath"
+    resource="tasks.properties" />
+
+<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+ 
+
+</project>

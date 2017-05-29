@@ -9,6 +9,7 @@ package Controler;
  *
  * @author Antonio Ramirez
  */
+        
 public class mensajes2 {
     
     String mensaje;

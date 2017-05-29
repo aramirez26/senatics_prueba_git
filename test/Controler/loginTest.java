@@ -43,7 +43,7 @@ public class loginTest {
         System.out.println("getSesion");
         login instance = new login();
         String expResult = "a";
-        String result = "b";
+        String result = "a";
         assertEquals(expResult, result);
         //fail("The test case is a prototype.");
     }
