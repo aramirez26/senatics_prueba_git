@@ -6,6 +6,7 @@
 package Controler;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author Antonio Ramirez
  */
-public class login extends HttpServlet {
+public class login extends HttpServlet implements Serializable {
     
     Conexion conn;
     public HttpSession sesion;

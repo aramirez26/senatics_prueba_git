@@ -10,12 +10,13 @@ package Controler;
  * and open the template in the editor.
  */
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Properties;
  
-public class Conexion {
+public class Conexion implements Serializable {
  
     private Connection conexionn=null;
     private String servidor="";

@@ -38,20 +38,8 @@ public class mensajes2Test {
     }
 
     @Test
-    public void testGetTipo() {
-        System.out.println("getTipo");
-        String instance = "hola";
-        String expResult = "hola";
-        String result = "hola";
-        assertEquals(expResult, result);
-        //fail("The test case is a prototype.");
-    }
-
-
-    @Test
     public void testGenerarRespuesta() {
         System.out.println("generarRespuesta");
-        
         mensajes2 instance = new mensajes2("hola","hola");
         String expResult = "hola";
         String result = instance.mensaje;

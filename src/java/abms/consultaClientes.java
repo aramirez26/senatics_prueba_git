@@ -10,13 +10,14 @@ package abms;
  * @author Antonio Ramirez
  */
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-public class consultaClientes 
+public class consultaClientes implements Serializable
         
 {
    public static LinkedList<Clientes> getClientes()

@@ -5,11 +5,13 @@
  */
 package abms;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Antonio Ramirez
  */
-public class Clientes {
+public class Clientes implements Serializable {
 	int id;
         int ci;
         String nombre;

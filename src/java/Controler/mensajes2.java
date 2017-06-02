@@ -5,12 +5,14 @@
  */
 package Controler;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Antonio Ramirez
  */
         
-public class mensajes2 {
+public class mensajes2 implements Serializable{
     
     String mensaje;
     String tipo;
