@@ -31,62 +31,6 @@
                 INITIALIZATION SECTION				
             -->
 			
-<!-- <property file="nbproject\project.properties"/>			
-			
-<path id="cobertura.classpath">
-	<pathelement location="lib\\cobertura-2.0.3.jar" />
-	<pathelement location="lib\\log4j-1.2.16.jar" />
-	<pathelement location="lib\\asm-3.1.jar" />
-    <fileset dir="${cobertura.dir}">
-
-    </fileset>
-</path>
-
-<taskdef classpathref="cobertura.classpath" resource="tasks.properties">
-  <classpath>
-    <pathelement location="lib\\cobertura-2.0.3.jar"/>
-  </classpath>
-</taskdef>		
-
-<target name="cobertura-instrument" depends="compile">
-	<property name="cobertura.ser.file" value="${cobertura.dir}/cobertura.ser"/>
-	<property name="cobertura.classes.dir" value="${cobertura.dir}/classes"/>
-    <cobertura-instrument
-        todir="${cobertura.classes.dir}"
-        datafile="${cobertura.ser.file}" >
-    <fileset dir="${build.classes.dir}">
-         <include name="**/*.class"/>
-    </fileset>
-    </cobertura-instrument>
-</target>
-
-<target name="cobertura-test"
-    depends="set-cobertura-file, init,compile-test,
-    -pre-test-run,cobertura-instrument,
-    -do-test-run,test-report,-post-test-run,-test-browse">
-</target>
-
-<target name="set-cobertura-file" depends="init">
-    <property
-        name="test-sys-prop.net.sourceforge.cobertura.datafile"
-        value="${cobertura.ser.file}"/>
-</target>
-
-<target name="cobertura-report" depends="cobertura-test">
-    <cobertura-report
-        datafile="${cobertura.ser.file}"
-        format="xml"
-        destdir="${cobertura.report.dir}"
-        srcdir="${src.dir}" />
-
-    <cobertura-report
-        datafile="${cobertura.ser.file}"
-        format="html"
-        destdir="${cobertura.report.dir}"
-        srcdir="${src.dir}" />
-</target> -->
-
-			
     <target name="-pre-init">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
@@ -500,6 +444,11 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
                         <propertyref prefix="test-sys-prop."/>
                         <mapper from="test-sys-prop.*" to="*" type="glob"/>
                     </syspropertyset>
+<!-- 					<sysproperty key="net.sourceforge.cobertura.datafile"
+					file="${cobertura.dir}/cobertura.ser"/>
+					<classpath location="${cobertura.instruments.dir}"/>
+					<classpath location="${build.classes.dir}"/>
+					<classpath refid="cobertura.classpath" />	 -->
                     <formatter type="brief" usefile="false"/>
                     <formatter type="xml"/>
                     <jvmarg value="-ea"/>
@@ -949,7 +898,9 @@ exists or setup the property manually. For example like this:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,deps-jar,-pre-pre-compile,-pre-compile,-do-compile,-post-compile" description="Compile project." name="compile"/>
+    <target depends="init,deps-jar,-pre-pre-compile,-pre-compile,-do-compile,-post-compile" description="Compile project." name="compile">
+		<delete file="cobertura.ser.file"/>
+	</target>
     <target name="-pre-compile-single">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
@@ -1058,9 +1009,10 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.JasperReports.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.itex.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.ant-contrib-0.6.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.asm-3.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.cobertura-2.0.3.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.asm-5.2.0.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.cobertura-2.1.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.log4j-1.2.16.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+		<copyfiles files="${file.reference.slf4j.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.itex.classpath}" todir="${build.web.dir}//"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
@@ -1070,12 +1022,20 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.JasperReports.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.itex.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.ant-contrib-0.6.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.asm-3.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.cobertura-2.0.3.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.asm-5.2.0.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.cobertura-2.1.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.log4j-1.2.16.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+		<copyfiles files="${file.reference.slf4j.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.itex.classpath}" todir="${build.web.dir}//"/>
     </target>
-
+	<target depends="init" if="dist.ear.dir" name="cobertura-inclusion-in-manifest">
+		<fileset dir="${cobertura.dir}"/>
+		<mkdir dir="${build.web.dir}/META-INF"/>
+        <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>		
+	</target>
+	<target depends="init" name="cobertura-inclusion-in-archive" unless="dist.ear.dir">
+		<fileset dir="${cobertura.dir}"/>
+	</target>
 	
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -1391,7 +1351,7 @@ exists or setup the property manually. For example like this:
                 
                 TEST COMPILATION SECTION
             -->
-    <target depends="init,compile, cobertura-instrument" if="have.tests" name="-pre-pre-compile-test">
+    <target depends="init,compile" if="have.tests" name="-pre-pre-compile-test">
         <mkdir dir="${build.test.classes.dir}"/>
         <property name="j2ee.platform.embeddableejb.classpath" value=""/>
     </target>
@@ -1441,9 +1401,9 @@ exists or setup the property manually. For example like this:
     </target>
     <target depends="init" if="have.tests" name="test-report">
 	</target>
-    <target depends="init, set-cobertura-file, cobertura-report" if="netbeans.home+have.tests" name="-test-browse">
+    <target depends="init" if="netbeans.home+have.tests" name="-test-browse">
 	</target>
-    <target depends="init,compile-test,-pre-test-run,-do-test-run,test-report,-post-test-run,-test-browse" description="Run unit tests." name="test"/>
+    <target depends="init,compile-test,-pre-test-run,-do-test-run,test-report,-post-test-run,-test-browse, cobertura-report" description="Run unit tests." name="test"/>
     <target depends="init" if="have.tests" name="-pre-test-run-single">
         <mkdir dir="${build.test.results.dir}"/>
     </target>
@@ -1466,46 +1426,61 @@ exists or setup the property manually. For example like this:
     <target depends="init,compile-test-single,-pre-test-run-single,-do-test-run-single-method,-post-test-run-single-method" description="Run single unit test." name="test-single-method"/>
   
 	<target name="cobertura-instrument" depends="compile">
-	
+		<webproject2:javac debug="true"/>
 		<property file="nbproject\project.properties"/>	
-		<property name="cobertura.ser.file" value="${cobertura.dir}/cobertura.ser"/>
+<!-- 		<property name="cobertura.ser.file" value="${cobertura.dir}/cobertura.ser"/>
 		<property name="cobertura.classes.dir" value="${cobertura.dir}/classes"/>
+		<property name="cobertura.instrument.dir" value="${cobertura.dir}/instrument"/> -->
 
 		<path id="cobertura.classpath">
-			<pathelement location="lib\\cobertura-2.0.3.jar" />
+			<pathelement location="lib\\cobertura-2.1.1.jar" />
 			<pathelement location="lib\\log4j-1.2.16.jar" />
-			<pathelement location="lib\\asm-3.1.jar" />
+			<pathelement location="lib\\asm-5.1.5.jar" />
+			<pathelement location="lib\\asm-tree-4.1.jar" />
+			<pathelement location="lib\\slf4j.jar" />
+			<pathelement location="lib\\logback.jar" />
+			<pathelement location="lib\\jakarta-oro-2.0.7.jar" />
+			<pathelement location="lib\\commons-lang3-3.1.jar" />			
 			<fileset dir="${cobertura.dir}">
-
+				<include name="**/*.jar" />
 			</fileset>
 		</path>
 		
 		<taskdef classpathref="cobertura.classpath" resource="tasks.properties">
 		  <classpath>
-			<pathelement location="lib\\cobertura-2.0.3.jar"/>
+			<pathelement location="lib\\cobertura-2.1.1.jar"/>
 		  </classpath>
 		</taskdef>
-
-		<cobertura-instrument
-			todir="${cobertura.classes.dir}"
+<!-- 		<mkdir dir="${cobertura.classes.dir}"/>
+			<mkdir dir="${cobertura.instruments.dir}"/> -->
+<!-- 	<copy todir="${cobertura.instruments.dir}">
+            <fileset dir="${build.classes.dir}">
+				<include name="**/*.class" />
+			</fileset>
+        </copy> -->
+		<delete file="${cobertura.ser.file}" />
+		<cobertura-instrument	
+			todir="${cobertura.instruments.dir}"
 			datafile="${cobertura.ser.file}" >
-		<fileset dir="${build.classes.dir}">
-			 <include name="**/*.class"/>
-		</fileset>
+			 <fileset dir="${build.classes.dir}">			 
+  				<include name="**/*.class" />
+			<!--	<exclude name="**/*Test.class" /> -->
+			</fileset>
 		</cobertura-instrument>
 	</target>
 
-	<target name="cobertura-test">
-	
+	<target depends="set-cobertura-file, init,compile-test,
+    -pre-test-run,cobertura-instrument,
+    -do-test-run,test-report,-post-test-run,-test-browse" name="cobertura-test">
 	</target>
 
-	<target name="set-cobertura-file">
+	<target name="set-cobertura-file" depends="init">
 		<property
-			name="test-sys-prop.net.sourceforge.cobertura.datafile"
+			name="net.sourceforge.cobertura.datafile"
 			value="${cobertura.ser.file}"/>
 	</target>
 
-	<target name="cobertura-report" depends="set-cobertura-file">
+	<target name="cobertura-report" depends="cobertura-test"> 
 		<cobertura-report
 			datafile="${cobertura.ser.file}"
 			format="xml"
@@ -1518,6 +1493,9 @@ exists or setup the property manually. For example like this:
 			destdir="${cobertura.report.dir}"
 			srcdir="${src.dir}" />
 	</target>	
+<!-- 	<target name="package">
+          <jar destfile="${cobertura.dir}/${project.name}.jar" basedir="${cobertura.classes.dir}"/>
+     </target> -->
 	<!--    
                 TEST DEBUGGING SECTION
             -->
