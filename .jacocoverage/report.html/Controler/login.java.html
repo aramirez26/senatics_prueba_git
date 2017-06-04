@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>login.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WebPruebaSenatics&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Controler</a> &gt; <span class="el_source">login.java</span></div><h1>login.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Controler;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Antonio Ramirez
+ */
+<span class="nc" id="L27">public class login extends HttpServlet implements Serializable {</span>
+    
+    Conexion conn;
+    public HttpSession sesion;
+
+    public HttpSession getSesion() {
+<span class="nc" id="L33">        return sesion;</span>
+    }
+    
+   //metodo encargado de la gestión del método POST
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    String pantalla;
+<span class="nc" id="L40">    pantalla = request.getParameter(&quot;pantalla&quot;);</span>
+
+        
+<span class="nc bnc" id="L43" title="All 2 branches missed.">    if (&quot;menu&quot;.equals(pantalla)){</span>
+<span class="nc" id="L44">            sesion.invalidate();</span>
+<span class="nc" id="L45">            response.sendRedirect(&quot;index.jsp&quot;);</span>
+        } else {
+<span class="nc" id="L47">            sesion = request.getSession();</span>
+            String usu, pass, usu2, pass2;
+
+<span class="nc" id="L50">            usu = request.getParameter(&quot;user&quot;);</span>
+<span class="nc" id="L51">            pass = request.getParameter(&quot;password&quot;);</span>
+            
+<span class="nc" id="L53">            usu2 = request.getParameter(&quot;user2&quot;);</span>
+<span class="nc" id="L54">            pass2 = request.getParameter(&quot;password2&quot;);</span>
+        
+            //String servidor = &quot;192.168.222.150:5433&quot;;
+            //String database = &quot;deb_aut&quot;;
+            
+<span class="nc" id="L59">            String servidor = &quot;localhost:5432&quot;;</span>
+<span class="nc" id="L60">            String database = &quot;senatics&quot;;</span>
+
+<span class="nc" id="L62">            String url=&quot;&quot;;  </span>
+        
+        
+        try {
+<span class="nc" id="L66">            Class.forName(&quot;org.postgresql.Driver&quot;);</span>
+<span class="nc" id="L67">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L68">            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L69">        }</span>
+        try {
+            //Class.forName(&quot;sun.jdbc.odbc.JdbcOdbcDriver&quot;);
+<span class="nc" id="L72">            DriverManager.registerDriver(new org.postgresql.Driver());</span>
+<span class="nc" id="L73">        } catch (SQLException ex) {</span>
+<span class="nc" id="L74">            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L75">        }</span>
+<span class="nc" id="L76">            url=&quot;jdbc:postgresql://&quot;+servidor+&quot;/&quot;+database;</span>
+<span class="nc" id="L77">            Connection conexion = null;</span>
+        try {
+<span class="nc" id="L79">            conexion = DriverManager.getConnection(url, &quot;postgres&quot;, &quot;paraguay&quot;);</span>
+<span class="nc" id="L80">        } catch (SQLException ex) {</span>
+<span class="nc" id="L81">            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L82">        }</span>
+        try {
+<span class="nc bnc" id="L84" title="All 2 branches missed.">            if (&quot;registro&quot;.equals(pantalla)){</span>
+<span class="nc" id="L85">                java.sql.Statement st = conexion.createStatement();</span>
+<span class="nc" id="L86">                ResultSet rs = st.executeQuery(&quot;SELECT * FROM usuario WHERE usuario = '&quot; + usu2 + &quot;'&quot;);</span>
+            
+<span class="nc bnc" id="L88" title="All 2 branches missed.">                if (rs.next()) {</span>
+                    String tag1, tag2;
+<span class="nc" id="L90">                    tag1 = &quot;&lt;tr&gt;&lt;td&gt;&quot;;</span>
+<span class="nc" id="L91">                    tag2 = &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;</span>
+<span class="nc" id="L92">                    String mensajelocal = &quot;El usuario ya existe. Utilice otro nombre de usuario.&quot; ;</span>
+<span class="nc" id="L93">                    mensajes2 mensaje = new mensajes2(tag1 + mensajelocal + tag2, &quot;error&quot;);</span>
+<span class="nc" id="L94">                    response.getWriter().print(mensaje.generarRespuesta());</span>
+                    //redirijo a página con información de login exitoso
+<span class="nc" id="L96">                }else{</span>
+<span class="nc" id="L97">                    java.sql.PreparedStatement st2 = conexion.prepareStatement(&quot;&quot;</span>
+                    + &quot;INSERT INTO usuario (usuario, pwd) &quot;
+                    + &quot;VALUES (?,?)&quot;);
+
+                        //se inicializan los parametros del sql
+<span class="nc" id="L102">                    st2.setString(1, usu2);</span>
+<span class="nc" id="L103">                    st2.setString(2, pass2);</span>
+
+                        //}
+<span class="nc" id="L106">                    st2.execute();</span>
+                          
+                    
+<span class="nc" id="L109">                    sesion.setAttribute(&quot;respuesta_registro&quot;, &quot;Usuario Registrado Correctamente. Acceda al sistema con su usuario.&quot;);</span>
+<span class="nc" id="L110">                    response.sendRedirect(&quot;index.jsp&quot;);</span>
+                    
+<span class="nc" id="L112">                    st2.close();  </span>
+                }
+                
+<span class="nc" id="L115">                rs.close();</span>
+<span class="nc" id="L116">                st.close();</span>
+<span class="nc" id="L117">            }else{</span>
+<span class="nc" id="L118">                java.sql.Statement st = conexion.createStatement();</span>
+<span class="nc" id="L119">                ResultSet rs = st.executeQuery(&quot;SELECT * FROM usuario WHERE usuario = '&quot; + usu + &quot;' and pwd = '&quot; + pass + &quot;'&quot;);</span>
+            
+<span class="nc bnc" id="L121" title="All 4 branches missed.">                if (rs.next()&amp;&amp; sesion.getAttribute(&quot;usuario&quot;) == null) {</span>
+
+<span class="nc" id="L123">                    sesion.setAttribute(&quot;usuario&quot;, usu);</span>
+<span class="nc" id="L124">                    sesion.setMaxInactiveInterval(20);</span>
+                    //redirijo a página con información de login exitoso
+<span class="nc" id="L126">                    response.sendRedirect(&quot;paginas/consultaClientes.jsp&quot;);</span>
+                }else{
+<span class="nc" id="L128">                    mensajes2 mensaje = new mensajes2(&quot;Usuario o Contraseña inválidos.&quot;,&quot;error&quot;);</span>
+<span class="nc" id="L129">                    response.getWriter().print(mensaje.generarRespuesta());</span>
+                }
+<span class="nc" id="L131">                st.close();</span>
+            }
+            
+<span class="nc" id="L134">        } catch (SQLException ex) {</span>
+<span class="nc" id="L135">            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L136">        }</span>
+        try {
+<span class="nc" id="L138">            conexion.close();</span>
+<span class="nc" id="L139">        } catch (SQLException ex) {</span>
+<span class="nc" id="L140">            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L141">        }</span>
+        }
+<span class="nc" id="L143">    }</span>
+ 
+   //método encargado de la gestión del método GET
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 
+        //me llega la url &quot;proyecto/login/out&quot;
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        String action=(request.getPathInfo()!=null?request.getPathInfo():&quot;&quot;);</span>
+<span class="nc" id="L150">        HttpSession sesion = request.getSession();</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if(action.equals(&quot;/out&quot;)){</span>
+<span class="nc" id="L152">            sesion.invalidate();</span>
+<span class="nc" id="L153">            response.sendRedirect(&quot;/home.jsp&quot;);</span>
+        }else{
+ 
+        }
+<span class="nc" id="L157">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

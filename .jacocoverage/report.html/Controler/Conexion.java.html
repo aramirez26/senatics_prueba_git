@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Conexion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;WebPruebaSenatics&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Controler</a> &gt; <span class="el_source">Conexion.java</span></div><h1>Conexion.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Controler;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.Serializable;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Properties;
+ 
+public class Conexion implements Serializable {
+ 
+<span class="nc" id="L21">    private Connection conexionn=null;</span>
+<span class="nc" id="L22">    private String servidor=&quot;&quot;;</span>
+<span class="nc" id="L23">    private String database=&quot;&quot;;</span>
+<span class="nc" id="L24">    private String usuario=&quot;&quot;;</span>
+<span class="nc" id="L25">    private String password=&quot;&quot;;</span>
+<span class="nc" id="L26">    private String url=&quot;&quot;;</span>
+
+<span class="nc" id="L28">    public Conexion(String usuario, String password){</span>
+        try {
+<span class="nc" id="L30">            this.servidor = &quot;192.168.222.150:5433&quot;;</span>
+<span class="nc" id="L31">            this.database = &quot;db_aut&quot;;</span>
+ 
+<span class="nc" id="L33">            Class.forName(&quot;org.postgresql.Driver&quot;);</span>
+            //Class.forName(&quot;sun.jdbc.odbc.JdbcOdbcDriver&quot;);
+<span class="nc" id="L35">            DriverManager.registerDriver(new org.postgresql.Driver());</span>
+<span class="nc" id="L36">            url=&quot;jdbc:postgresql://&quot;+servidor+&quot;/&quot;+database;</span>
+<span class="nc" id="L37">            this.conexionn=DriverManager.getConnection(url, usuario, password);</span>
+            
+<span class="nc" id="L39">            System.out.println(&quot;Conexion a Base de Datos &quot;+url+&quot; . . . . .Ok&quot;);</span>
+ 
+        }
+<span class="nc" id="L42">        catch (SQLException ex) {</span>
+<span class="nc" id="L43">            System.out.println(ex);</span>
+<span class="nc" id="L44">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L45">            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L46">        } </span>
+<span class="nc" id="L47">    }</span>
+
+    public Connection getConexionn() {
+<span class="nc" id="L50">        return this.conexionn;</span>
+    }
+ 
+    public Connection cerrarConexion(){
+        try {
+<span class="nc" id="L55">            conexionn.close();</span>
+<span class="nc" id="L56">             System.out.println(&quot;Cerrando conexion a &quot;+url+&quot; . . . . . Ok&quot;);</span>
+<span class="nc" id="L57">        } catch (SQLException ex) {</span>
+<span class="nc" id="L58">            System.out.println(ex);</span>
+<span class="nc" id="L59">        }</span>
+<span class="nc" id="L60">        conexionn=null;</span>
+<span class="nc" id="L61">        return conexionn;</span>
+    }
+    
+     /*public static void main (String [ ] args) {
+ 
+        //Aquí las instrucciones de inicio y control del programa
+ 
+        System.out.println (&quot;Empezamos la ejecución del programa&quot;);
+        Conexion conect = new Conexion(&quot;postgres&quot;, &quot;paraguay&quot;);
+        
+        
+ 
+    }*/ //Cierre del main
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
