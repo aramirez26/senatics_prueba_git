@@ -19,6 +19,15 @@ import static org.junit.Assert.*;
 public class mensajes2Test {
     
     @Test
+    public void mensajes2Test() {
+        System.out.println("getTipo");
+        mensajes2 instance = new mensajes2("hola","hola");
+        String expResult = "hola";
+        String result = instance.getTipo();
+        assertEquals(expResult, result);
+    }
+
+    @Test
     public void testGetTipo() {
         System.out.println("getTipo");
         mensajes2 instance = new mensajes2("hola","hola");
