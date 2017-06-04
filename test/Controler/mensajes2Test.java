@@ -38,6 +38,44 @@ public class mensajes2Test {
     }
 
     @Test
+    public void testGetTipo() {
+        System.out.println("getTipo");
+        mensajes2 instance = new mensajes2("hola","hola");
+        String expResult = "hola";
+        String result = instance.getTipo();
+        assertEquals(expResult, result);
+        //fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testSetTipo() {
+        System.out.println("setTipo");
+        String tipo = "hola";
+        mensajes2 instance = new mensajes2("hola","hola");
+        instance.setTipo(tipo);
+        //fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testGetMensaje() {
+        System.out.println("getMensaje");
+        mensajes2 instance = new mensajes2("hola","hola");
+        String expResult = "hola";
+        String result = instance.getMensaje();
+        assertEquals(expResult, result);
+        //fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testSetMensaje() {
+        System.out.println("setMensaje");
+        String mensaje = "hola";
+        mensajes2 instance = new mensajes2("hola","hola");
+        instance.setMensaje(mensaje);
+        //fail("The test case is a prototype.");
+    }
+
+    @Test
     public void testGenerarRespuesta() {
         System.out.println("generarRespuesta");
         mensajes2 instance = new mensajes2("hola","hola");
