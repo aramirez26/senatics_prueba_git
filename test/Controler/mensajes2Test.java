@@ -18,25 +18,6 @@ import static org.junit.Assert.*;
  */
 public class mensajes2Test {
     
-    public mensajes2Test() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void testGetTipo() {
         System.out.println("getTipo");
