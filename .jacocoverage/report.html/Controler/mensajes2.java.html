@@ -40,20 +40,20 @@ public class mensajes2 implements Serializable{
     }
 
     public void setMensaje(String mensaje) {
-<span class="fc" id="L43">        this.mensaje = mensaje;</span>
-<span class="fc" id="L44">    }</span>
+<span class="nc" id="L43">        this.mensaje = mensaje;</span>
+<span class="nc" id="L44">    }</span>
     
     public String generarRespuesta(){
         
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (tipo == &quot;error&quot;) {</span>
-<span class="nc" id="L49">            ubicacion = &quot;images/error.png&quot;;</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (tipo == &quot;error&quot;) {</span>
+<span class="fc" id="L49">            ubicacion = &quot;images/error.png&quot;;</span>
 <span class="nc bnc" id="L50" title="All 2 branches missed.">        } else if(tipo == &quot;warning&quot;) {</span>
 <span class="nc" id="L51">            ubicacion = &quot;images/warning.png&quot;;</span>
 <span class="nc bnc" id="L52" title="All 2 branches missed.">        } else if (tipo == &quot;exito&quot;){</span>
 <span class="nc" id="L53">            ubicacion = &quot;images/ok.png&quot;;</span>
         }
             
-<span class="nc" id="L56">        respuesta = &quot;&lt;head&gt;&quot; +</span>
+<span class="fc" id="L56">        respuesta = &quot;&lt;head&gt;&quot; +</span>
                 &quot;&lt;fieldset&gt;&lt;legend&gt;Mensaje&lt;/legend&gt;&quot;+
 &quot;&lt;table style=\&quot;text-align: left; width: 538px; height: 111px;\&quot;&quot;+
 &quot; border=\&quot;0\&quot; cellpadding=\&quot;2\&quot; cellspacing=\&quot;2\&quot;&gt;&quot;+
@@ -79,7 +79,7 @@ public class mensajes2 implements Serializable{
 &quot;&lt;/fieldset&gt;&quot;+
 &quot;&lt;/head&gt;&quot;;
         
-<span class="nc" id="L82">        return respuesta;</span>
+<span class="fc" id="L82">        return respuesta;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

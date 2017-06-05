@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="ANTONIORAMIREZ" name="Controler.mensajes2Test" skipped="0" tests="2" time="0.078" timestamp="2017-06-05T00:17:23">
+<testsuite errors="0" failures="0" hostname="ANTONIORAMIREZ" name="Controler.mensajes2Test" skipped="0" tests="1" time="0.071" timestamp="2017-06-05T00:43:47">
   <properties>
     <property name="libs.jdt-compiler-3.1.1.maven-pom" value="" />
     <property name="libs.jsp-compiler.javadoc" value="" />
@@ -58,7 +58,7 @@
     <property name="libs.testng.src" value="" />
     <property name="libs.spring-webmvc3.0.src" value="" />
     <property name="libs.restapi.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jaxrs-2.0\javax.ws.rs-api-2.0.jar" />
-    <property name="runmain.jvmargs" value=" -javaagent:&quot;C:\Users\Antonio Ramirez\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar&quot;=includes=abms.*:Controler.*,destfile=&quot;C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\jacoco.exec-1482109866308389&quot;" />
+    <property name="runmain.jvmargs" value=" -javaagent:&quot;C:\Users\Antonio Ramirez\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar&quot;=includes=abms.*:Controler.*,destfile=&quot;C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\jacoco.exec-1483694347136945&quot;" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
     <property name="libs.jaxb.maven-pom" value="" />
     <property name="os.arch" value="amd64" />
@@ -70,7 +70,7 @@
     <property name="javax.xml.datatype.DatatypeFactory" value="com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Controler.mensajes2Test skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\salida\test\results\TEST-Controler.mensajes2Test.xml crashfile=C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\build\junitvmwatcher2923335949598554441.properties propsfile=C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\build\junit5027819500000131314.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Controler.mensajes2Test skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\salida\test\results\TEST-Controler.mensajes2Test.xml crashfile=C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\build\junitvmwatcher7348466396750839979.properties propsfile=C:\antonio\proyectos\senatics\proyectos_java4\WebPruebaSenatics\build\junit1742087923914182883.properties" />
     <property name="build.classes.dir" value="build/web/WEB-INF/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="ap.supported.internal" value="true" />
@@ -460,10 +460,8 @@
     <property name="war.ear.name" value="WebPruebaSenatics.war" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="Controler.mensajes2Test" name="testSetMensaje" time="0.0" />
-  <testcase classname="Controler.mensajes2Test" name="testGenerarRespuesta" time="0.0" />
-  <system-out><![CDATA[setMensaje
-generarRespuesta
+  <testcase classname="Controler.mensajes2Test" name="testGenerarRespuesta" time="0.008" />
+  <system-out><![CDATA[generarRespuesta
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
