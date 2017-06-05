@@ -64,16 +64,16 @@ public class mensajes2Test {
         String result = instance.getMensaje();
         assertEquals(expResult, result);
         //fail("The test case is a prototype.");
-    }
+    }*/
 
     @Test
     public void testSetMensaje() {
         System.out.println("setMensaje");
-        String mensaje = "";
-        mensajes2 instance = null;
+        String mensaje = "hola";
+        mensajes2 instance = new mensajes2("hola","hola");
         instance.setMensaje(mensaje);
         //fail("The test case is a prototype.");
-    }*/
+    }
 
     @Test
     public void testGenerarRespuesta() {
