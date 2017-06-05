@@ -17,12 +17,31 @@ import static org.junit.Assert.*;
  * @author Antonio Ramirez
  */
 public class mensajes2Test {
+    
+    public mensajes2Test() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
 
-    @Test
+  /*  @Test
     public void testGetTipo() {
         System.out.println("getTipo");
-        mensajes2 instance = new mensajes2("hola","hola");
-        String expResult = "hola";
+        mensajes2 instance = null;
+        String expResult = "";
         String result = instance.getTipo();
         assertEquals(expResult, result);
         //fail("The test case is a prototype.");
@@ -31,8 +50,8 @@ public class mensajes2Test {
     @Test
     public void testSetTipo() {
         System.out.println("setTipo");
-        String tipo = "hola";
-        mensajes2 instance = new mensajes2("hola","hola");
+        String tipo = "";
+        mensajes2 instance = null;
         instance.setTipo(tipo);
         //fail("The test case is a prototype.");
     }
@@ -40,8 +59,8 @@ public class mensajes2Test {
     @Test
     public void testGetMensaje() {
         System.out.println("getMensaje");
-        mensajes2 instance = new mensajes2("hola","hola");
-        String expResult = "hola";
+        mensajes2 instance = null;
+        String expResult = "";
         String result = instance.getMensaje();
         assertEquals(expResult, result);
         //fail("The test case is a prototype.");
@@ -50,11 +69,11 @@ public class mensajes2Test {
     @Test
     public void testSetMensaje() {
         System.out.println("setMensaje");
-        String mensaje = "hola";
-        mensajes2 instance = new mensajes2("hola","hola");
+        String mensaje = "";
+        mensajes2 instance = null;
         instance.setMensaje(mensaje);
         //fail("The test case is a prototype.");
-    }
+    }*/
 
     @Test
     public void testGenerarRespuesta() {
