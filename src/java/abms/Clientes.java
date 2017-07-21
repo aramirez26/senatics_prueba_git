@@ -40,5 +40,9 @@ public class Clientes implements Serializable {
         this.nombre = nombre;
     }
 
+    int setId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
 
