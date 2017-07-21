@@ -75,23 +75,23 @@ public class ClientesTest {
         //fail("The test case is a prototype.");
     }
 
-    @Test
-    public void testGetNombre() {
-        System.out.println("getNombre");
-        Clientes instance = new Clientes();
-        String expResult = instance.nombre = "Rogelio";
-        String result = instance.getNombre();
-        assertEquals(expResult, result);
-        //fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testSetNombre() {
-        System.out.println("setNombre");
-        String nombre = "";
-        Clientes instance = new Clientes();
-        instance.setNombre(nombre);
-        //fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGetNombre() {
+//        System.out.println("getNombre");
+//        Clientes instance = new Clientes();
+//        String expResult = instance.nombre = "Rogelio";
+//        String result = instance.getNombre();
+//        assertEquals(expResult, result);
+//        //fail("The test case is a prototype.");
+//    }
+//
+//    @Test
+//    public void testSetNombre() {
+//        System.out.println("setNombre");
+//        String nombre = "";
+//        Clientes instance = new Clientes();
+//        instance.setNombre(nombre);
+//        //fail("The test case is a prototype.");
+//    }
     
 }
