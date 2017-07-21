@@ -77,7 +77,9 @@ public class consultaClientesTest {
          st.close();
          conexion.close();
 
-        LinkedList<Clientes> result = consultaClientes.getClientes();
+        //LinkedList<Clientes> result = consultaClientes.getClientes();
+        LinkedList<Clientes> result = new LinkedList<Clientes>();
+        result = consultaClientes.getClientes();
         
         assertEquals(expResult.get(1).getId(), result.get(1).getId());
         //fail("The test case is a prototype.");
