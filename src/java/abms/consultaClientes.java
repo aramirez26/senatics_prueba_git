@@ -29,7 +29,7 @@ public class consultaClientes implements Serializable
       LinkedList<Clientes> listaClientes=new LinkedList<Clientes>();
       try
       {
-        String servidor = "localhost:5432";
+        String servidor = "192.168.126.19:5432";
         String database = "senatics";
         
         //String servidor = "localhost:5432";
@@ -38,7 +38,7 @@ public class consultaClientes implements Serializable
         Class.forName("org.postgresql.Driver");
         String url="jdbc:postgresql://"+servidor+"/"+database;
         Connection conexion = null;
-        conexion = DriverManager.getConnection(url, "postgres", "paraguay");
+        conexion = DriverManager.getConnection(url, "css", "css");
         Statement st = conexion.createStatement();
         ResultSet rs = st.executeQuery("select e.id, e.ci, e.nombre from clientes e order by e.nombre" );
         
