@@ -56,7 +56,7 @@ import javax.swing.JOptionPane;
             //String servidor = &quot;192.168.222.150:5433&quot;;
             //String database = &quot;deb_aut&quot;;
             
-<span class="nc" id="L59">            String servidor = &quot;localhost:5432&quot;;</span>
+<span class="nc" id="L59">            String servidor = &quot;192.168.126.19:5432&quot;;</span>
 <span class="nc" id="L60">            String database = &quot;senatics&quot;;</span>
 
 <span class="nc" id="L62">            String url=&quot;&quot;;  </span>
@@ -76,7 +76,7 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L76">            url=&quot;jdbc:postgresql://&quot;+servidor+&quot;/&quot;+database;</span>
 <span class="nc" id="L77">            Connection conexion = null;</span>
         try {
-<span class="nc" id="L79">            conexion = DriverManager.getConnection(url, &quot;postgres&quot;, &quot;paraguay&quot;);</span>
+<span class="nc" id="L79">            conexion = DriverManager.getConnection(url, &quot;css&quot;, &quot;css&quot;);</span>
 <span class="nc" id="L80">        } catch (SQLException ex) {</span>
 <span class="nc" id="L81">            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);</span>
 <span class="nc" id="L82">        }</span>

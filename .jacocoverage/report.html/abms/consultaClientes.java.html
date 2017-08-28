@@ -29,7 +29,7 @@ import java.util.LinkedList;
 <span class="fc" id="L29">      LinkedList&lt;Clientes&gt; listaClientes=new LinkedList&lt;Clientes&gt;();</span>
       try
       {
-<span class="fc" id="L32">        String servidor = &quot;localhost:5432&quot;;</span>
+<span class="fc" id="L32">        String servidor = &quot;192.168.126.19:5432&quot;;</span>
 <span class="fc" id="L33">        String database = &quot;senatics&quot;;</span>
         
         //String servidor = &quot;localhost:5432&quot;;
@@ -38,7 +38,7 @@ import java.util.LinkedList;
 <span class="fc" id="L38">        Class.forName(&quot;org.postgresql.Driver&quot;);</span>
 <span class="fc" id="L39">        String url=&quot;jdbc:postgresql://&quot;+servidor+&quot;/&quot;+database;</span>
 <span class="fc" id="L40">        Connection conexion = null;</span>
-<span class="fc" id="L41">        conexion = DriverManager.getConnection(url, &quot;postgres&quot;, &quot;paraguay&quot;);</span>
+<span class="fc" id="L41">        conexion = DriverManager.getConnection(url, &quot;css&quot;, &quot;css&quot;);</span>
 <span class="fc" id="L42">        Statement st = conexion.createStatement();</span>
 <span class="fc" id="L43">        ResultSet rs = st.executeQuery(&quot;select e.id, e.ci, e.nombre from clientes e order by e.nombre&quot; );</span>
         
